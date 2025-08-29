@@ -2,177 +2,89 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Happy Birthday My Love 💖</title>
+  <title>Happy Birthday ❤️</title>
   <style>
     body {
       margin: 0;
-      padding: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: radial-gradient(circle at top, #1e1f47, #111);
+      overflow: hidden;
       font-family: 'Poppins', sans-serif;
-      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
       color: white;
-      overflow-x: hidden;
       text-align: center;
     }
 
     h1 {
-      font-family: 'Great Vibes', cursive;
       font-size: 3rem;
-      margin-top: 50px;
-      opacity: 0;
-      transform: translateY(-30px);
-      animation: fadeInUp 2s forwards ease-in-out;
+      font-family: 'Dancing Script', cursive;
+      margin-bottom: 10px;
+      color: #ffccd5;
+      text-shadow: 0 0 10px rgba(255,200,200,0.8);
     }
 
-    p {
-      font-size: 1.2rem;
-      max-width: 700px;
-      margin: 20px auto;
-      line-height: 1.8;
+    #wish {
+      max-width: 600px;
       opacity: 0;
+      font-size: 1.2rem;
+      line-height: 1.6;
+      transition: opacity 2s ease;
     }
 
     button {
-      padding: 15px 30px;
-      font-size: 1.1rem;
+      padding: 12px 25px;
+      margin: 10px;
+      font-size: 1rem;
       border: none;
       border-radius: 30px;
-      background: #ff4da6;
-      color: white;
       cursor: pointer;
-      margin: 20px;
+      background: #ff4d6d;
+      color: white;
+      font-weight: bold;
+      box-shadow: 0 4px 15px rgba(255,77,109,0.5);
       transition: 0.3s;
     }
-
     button:hover {
-      background: #e60073;
+      background: #ff1e50;
       transform: scale(1.05);
-    }
-
-    @keyframes fadeInUp {
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
     }
 
     /* Balloons */
     .balloon {
       position: absolute;
+      bottom: -150px;
       width: 40px;
       height: 60px;
-      background: #ffccff;
-      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
-      animation: float 8s infinite ease-in-out;
-      opacity: 0.8;
+      border-radius: 50% 50% 45% 45%;
+      background: pink;
+      animation: floatUp 12s linear infinite;
     }
-
-    .balloon:after {
-      content: "";
+    .balloon::after {
+      content: '';
       position: absolute;
       width: 2px;
-      height: 40px;
+      height: 50px;
       background: white;
       top: 60px;
       left: 50%;
       transform: translateX(-50%);
     }
-
-    @keyframes float {
-      0% { transform: translateY(100vh) translateX(0); }
-      50% { transform: translateY(30vh) translateX(20px); }
-      100% { transform: translateY(-10vh) translateX(-20px); }
+    @keyframes floatUp {
+      from { transform: translateY(0); opacity: 1; }
+      to { transform: translateY(-120vh); opacity: 0; }
     }
 
-    /* Stars */
+    /* Confetti */
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(360deg); }
+    }
+
+    /* Stars background */
     .star {
       position: absolute;
       width: 2px;
       height: 2px;
       background: white;
-      border-radius: 50%;
-      animation: twinkle 2s infinite alternate;
-    }
-
-    @keyframes twinkle {
-      from { opacity: 0.2; }
-      to { opacity: 1; }
-    }
-
-    /* Hidden wish */
-    #wish {
-      font-size: 1.5rem;
-      opacity: 0;
-      transition: opacity 2s ease-in-out;
-      margin-top: 30px;
-      line-height: 2;
-    }
-  </style>
-</head>
-<body>
-
-  <h1>🎂 Happy Birthday My Love 💖</h1>
-
-  <button onclick="playMusic()">▶ Play Music</button>
-  <button onclick="showWish()">✨ Reveal Surprise</button>
-
-  <p id="wish">
-    On this special day, I just want to remind you how much you mean to me.  
-    Even across the distance, my love for you only grows stronger.  
-    You are my happiness, my safe place, and my forever. 💕  
-    Happiest Birthday, my Diyu! 🥰🎉
-  </p>
-
-  <!-- Balloons -->
-  <div class="balloon" style="left:10%; animation-delay:0s;"></div>
-  <div class="balloon" style="left:30%; background:#ff99cc; animation-delay:2s;"></div>
-  <div class="balloon" style="left:50%; background:#99ccff; animation-delay:4s;"></div>
-  <div class="balloon" style="left:70%; background:#ffd699; animation-delay:6s;"></div>
-  <div class="balloon" style="left:90%; background:#ccffcc; animation-delay:8s;"></div>
-
-  <!-- Stars -->
-  <script>
-    for (let i = 0; i < 100; i++) {
-      let star = document.createElement("div");
-      star.className = "star";
-      star.style.top = Math.random() * window.innerHeight + "px";
-      star.style.left = Math.random() * window.innerWidth + "px";
-      document.body.appendChild(star);
-    }
-
-    function playMusic() {
-      let audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_b43a6505f6.mp3?filename=lofi-study-112191.mp3");
-      audio.play();
-    }
-
-    function showWish() {
-      let wish = document.getElementById("wish");
-      wish.style.opacity = "1";
-
-      // Confetti
-      for (let i = 0; i < 150; i++) {
-        let confetti = document.createElement("div");
-        confetti.style.position = "fixed";
-        confetti.style.width = "6px";
-        confetti.style.height = "6px";
-        confetti.style.background = "hsl(" + Math.random() * 360 + ",100%,50%)";
-        confetti.style.top = Math.random() * innerHeight + "px";
-        confetti.style.left = Math.random() * innerWidth + "px";
-        confetti.style.opacity = "0.8";
-        confetti.style.animation = "fall 3s linear infinite";
-        confetti.style.borderRadius = "50%";
-        document.body.appendChild(confetti);
-
-        setTimeout(() => confetti.remove(), 3000);
-      }
-    }
-  </script>
-
-  <style>
-    @keyframes fall {
-      to { transform: translateY(100vh) rotate(720deg); }
-    }
-  </style>
-
-</body>
-</html>
