@@ -2,132 +2,177 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Happy Birthday Diya ❤️</title>
-  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday My Love 💖</title>
   <style>
-    * { margin: 0; padding: 0; box-sizing: border-box; }
-
     body {
+      margin: 0;
+      padding: 0;
       font-family: 'Poppins', sans-serif;
-      height: 100vh;
-      overflow: hidden;
-      background: radial-gradient(ellipse at bottom, #1b2735 0%, #090a0f 100%);
-      color: #fff;
+      background: linear-gradient(135deg, #1e1e2f, #2a2a40);
+      color: white;
+      overflow-x: hidden;
       text-align: center;
-      position: relative;
-    }
-
-    /* Stars background */
-    .stars {
-      width: 2px;
-      height: 2px;
-      background: white;
-      position: absolute;
-      animation: moveStars 50s linear infinite;
-      border-radius: 50%;
-    }
-
-    @keyframes moveStars {
-      from { transform: translateY(0); }
-      to { transform: translateY(-100vh); }
     }
 
     h1 {
-      font-family: 'Dancing Script', cursive;
-      font-size: 3.5em;
-      margin-top: 60px;
-      color: #ffdee9;
-      text-shadow: 0 0 25px rgba(255,255,255,0.9);
-      animation: fadeIn 3s ease-in-out;
+      font-family: 'Great Vibes', cursive;
+      font-size: 3rem;
+      margin-top: 50px;
+      opacity: 0;
+      transform: translateY(-30px);
+      animation: fadeInUp 2s forwards ease-in-out;
     }
 
-    .buttons {
-      margin: 30px;
+    p {
+      font-size: 1.2rem;
+      max-width: 700px;
+      margin: 20px auto;
+      line-height: 1.8;
+      opacity: 0;
     }
 
-    .button {
-      padding: 15px 35px;
-      margin: 10px;
-      background: rgba(255, 255, 255, 0.1);
-      border: 2px solid #fff;
+    button {
+      padding: 15px 30px;
+      font-size: 1.1rem;
+      border: none;
       border-radius: 30px;
-      color: #fff;
-      font-size: 1.1em;
+      background: #ff4da6;
+      color: white;
       cursor: pointer;
+      margin: 20px;
       transition: 0.3s;
-      backdrop-filter: blur(5px);
     }
 
-    .button:hover {
-      background: rgba(255,255,255,0.3);
+    button:hover {
+      background: #e60073;
       transform: scale(1.05);
     }
 
-    #message {
-      display: none;
-      margin: 40px auto;
-      width: 70%;
-      font-size: 1.2em;
-      line-height: 1.8;
-      text-shadow: 0 0 15px rgba(255,255,255,0.5);
-      border-radius: 15px;
-      padding: 20px;
-      animation: fadeIn 2s ease forwards;
+    @keyframes fadeInUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
-    @keyframes fadeIn {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
+    /* Balloons */
+    .balloon {
+      position: absolute;
+      width: 40px;
+      height: 60px;
+      background: #ffccff;
+      border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+      animation: float 8s infinite ease-in-out;
+      opacity: 0.8;
+    }
+
+    .balloon:after {
+      content: "";
+      position: absolute;
+      width: 2px;
+      height: 40px;
+      background: white;
+      top: 60px;
+      left: 50%;
+      transform: translateX(-50%);
+    }
+
+    @keyframes float {
+      0% { transform: translateY(100vh) translateX(0); }
+      50% { transform: translateY(30vh) translateX(20px); }
+      100% { transform: translateY(-10vh) translateX(-20px); }
+    }
+
+    /* Stars */
+    .star {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background: white;
+      border-radius: 50%;
+      animation: twinkle 2s infinite alternate;
+    }
+
+    @keyframes twinkle {
+      from { opacity: 0.2; }
+      to { opacity: 1; }
+    }
+
+    /* Hidden wish */
+    #wish {
+      font-size: 1.5rem;
+      opacity: 0;
+      transition: opacity 2s ease-in-out;
+      margin-top: 30px;
+      line-height: 2;
     }
   </style>
 </head>
 <body>
 
-  <h1>Happy Birthday, Diya 🎂✨</h1>
+  <h1>🎂 Happy Birthday My Love 💖</h1>
 
-  <div class="buttons">
-    <button class="button" onclick="revealMessage()">Reveal Message 💌</button>
-    <button class="button" onclick="playMusic()">Play Lofi 🎶</button>
-  </div>
+  <button onclick="playMusic()">▶ Play Music</button>
+  <button onclick="showWish()">✨ Reveal Surprise</button>
 
-  <div id="message">
-    <p>
-      My dearest Diya, on this special day,<br><br>
-      I just want to remind you that no distance can ever reduce my love for you.  
-      You are my peace, my inspiration, and the most beautiful part of my life.  
-      I promise to stay by your side through every season of life.  
-      Happy Birthday, my forever princess 👑❤️
-    </p>
-  </div>
+  <p id="wish">
+    On this special day, I just want to remind you how much you mean to me.  
+    Even across the distance, my love for you only grows stronger.  
+    You are my happiness, my safe place, and my forever. 💕  
+    Happiest Birthday, my Diyu! 🥰🎉
+  </p>
 
-  <audio id="bgMusic" loop>
-    <source src="https://cdn.pixabay.com/download/audio/2022/03/15/audio_7c3e8960b4.mp3?filename=lofi-study-112191.mp3" type="audio/mpeg">
-  </audio>
+  <!-- Balloons -->
+  <div class="balloon" style="left:10%; animation-delay:0s;"></div>
+  <div class="balloon" style="left:30%; background:#ff99cc; animation-delay:2s;"></div>
+  <div class="balloon" style="left:50%; background:#99ccff; animation-delay:4s;"></div>
+  <div class="balloon" style="left:70%; background:#ffd699; animation-delay:6s;"></div>
+  <div class="balloon" style="left:90%; background:#ccffcc; animation-delay:8s;"></div>
 
+  <!-- Stars -->
   <script>
-    // Reveal message
-    function revealMessage() {
-      document.getElementById("message").style.display = "block";
-    }
-
-    // Play lofi music
-    function playMusic() {
-      let music = document.getElementById("bgMusic");
-      music.play().catch(() => {
-        alert("Click again to allow music 🎶");
-      });
-    }
-
-    // Add moving stars
     for (let i = 0; i < 100; i++) {
       let star = document.createElement("div");
-      star.className = "stars";
+      star.className = "star";
       star.style.top = Math.random() * window.innerHeight + "px";
       star.style.left = Math.random() * window.innerWidth + "px";
-      star.style.animationDuration = (20 + Math.random() * 30) + "s";
       document.body.appendChild(star);
     }
+
+    function playMusic() {
+      let audio = new Audio("https://cdn.pixabay.com/download/audio/2022/03/15/audio_b43a6505f6.mp3?filename=lofi-study-112191.mp3");
+      audio.play();
+    }
+
+    function showWish() {
+      let wish = document.getElementById("wish");
+      wish.style.opacity = "1";
+
+      // Confetti
+      for (let i = 0; i < 150; i++) {
+        let confetti = document.createElement("div");
+        confetti.style.position = "fixed";
+        confetti.style.width = "6px";
+        confetti.style.height = "6px";
+        confetti.style.background = "hsl(" + Math.random() * 360 + ",100%,50%)";
+        confetti.style.top = Math.random() * innerHeight + "px";
+        confetti.style.left = Math.random() * innerWidth + "px";
+        confetti.style.opacity = "0.8";
+        confetti.style.animation = "fall 3s linear infinite";
+        confetti.style.borderRadius = "50%";
+        document.body.appendChild(confetti);
+
+        setTimeout(() => confetti.remove(), 3000);
+      }
+    }
   </script>
+
+  <style>
+    @keyframes fall {
+      to { transform: translateY(100vh) rotate(720deg); }
+    }
+  </style>
 
 </body>
 </html>
